@@ -5,16 +5,7 @@ date: 2021-05-10
 
 ## Introduction
 
-As a software developer I value having an iterative and incremental development
-approach for building software. A process which seeks to answer not only "what"
-we are building but also "how" we are building it. An approach which has been developed for decades
-and has many implementations. I naively hoped to find such a process for
-additive manufacturing but haven't yet. What I did find were many text and video
-tutorials on how to set up the printer, use the basic functions of a CAD
-software to create a model, use the model for creating a file that can be
-consumed by the printer and finally refine the print by various hardware and
-software settings and upgrades. Which led me to a first general approach to
-additive manufacturing:
+As a software developer I value having an iterative and incremental development approach for building software. A process which seeks to answer not only "what" we are building but also "how" we are building it. An approach which has been developed for decades and has many implementations. I naively hoped to find such a process for additive manufacturing but haven't yet. What I did find were many text and video tutorials on how to set up the printer, use the basic functions of a CAD software to create a model, use the model for creating a file that can be consumed by the printer and finally refine the print by various hardware and software settings and upgrades. Which led me to a first general approach to additive manufacturing:
 
     1 Make the printer work.
     2 (Re)Make a 3D model.
@@ -22,42 +13,23 @@ additive manufacturing:
     4 If the manufactured part is not good then goto 1
     5 Model successfully manufactured.
 
-It took time to figure out each of the previously mentioned steps but the
-question still remained, "Is there a general
-method for additive manufacturing that will help to produce a part which will
-be assembled with other parts?". Could the above process be formalized into some
-kind of reproducible iterative development process?
+It took time to figure out each of the previously mentioned steps but the question still remained, "Is there a general method for additive manufacturing that will help to produce a part which will be assembled with other parts?". Could the above process be formalized into some kind of reproducible iterative development process?
 
-To answer the question I decided to explore the manufacturing process of a Lego
-compatible brick. The challenge being to create a CAD model which could be used
-for manufacturing a brick with low dimensional tolerance and allowances. Thus,
-the model has to be parameterized in order to make refinements between
-iterations to conform with the inherent mechanical and manufacturing limitations
-of using an FFF printer.
+To answer the question I decided to explore the manufacturing process of a Lego compatible brick. The challenge being to create a CAD model which could be used for manufacturing a brick with low dimensional tolerance and allowances. Thus, the model has to be parameterized in order to make refinements between iterations to conform with the inherent mechanical and manufacturing limitations of using an FFF printer.
 
 ## Previous Work
 
-A very good article at prusaprinters.org illustrates the challenges of printing
-Lego compatible parts. The article mentions the difficulty of finding good
-models for printing and provides a set of STL models of bricks for printing. Yet, STL models in general
-are difficult to modify and not usable as a starting point in this project.  Also, it is not clear if the offered models can be
-used in different printers since they were created
-using only one specific model of Prusa brand printer. Yet, the article is very
-informative and should be kept in mind.
+A very good article at prusaprinters.org illustrates the challenges of printing Lego compatible parts. The article mentions the difficulty of finding good models for printing and provides a set of STL models of bricks for printing. Yet, STL models in general are difficult to modify and not usable as a starting point in this project.  Also, it is not clear if the offered models can be used in different printers since they were created using only one specific model of Prusa brand printer. Yet, the article is very informative and should be kept in mind because of the information about how approach the problem of printing blocks.
 
-For this project we need to start with a CAD model and not an STL. It is not easy to find proper CAD models of bricks for printing. Although is easy
-to find CAD models from public sources such as GrabCAD. The available models are mostly meant to
-be for use within a CAD and not for 3D printing bricks. Thus we must construct
-our own model in a CAD. Various video tutorials
-on YouTube explain how to design a Lego brick using various CAD software. Yet, the
-major hinderance of CAD models found in public sources is the lack of detail
-and/or agreement on the dimensions of a Lego brick.
+For this project we need to start with a CAD model and not an STL. It is not easy to find proper CAD models of bricks for printing. Although it is easy to find CAD models from public sources such as GrabCAD and industry CAD model providers. But, the available models are mostly meant to be for use within a CAD and not for 3D printing bricks. Thus we must construct our own model in a CAD. Various video tutorials on YouTube explain how to design a Lego brick using various CAD software. Yet, the major hinderance of CAD models found in public sources is the lack of detail and/or agreement on the dimensions of a Lego brick.
 
+"LDraw is a completely unofficial, community run free CAD system which represents official parts produced by the LEGO company." The community has a very well defined file format for sharing models made of Lego parts. The key feature of the file format is the definition of a standard unit of measurement named "LDraw Unit" or "LDU". A LDU is defined to be 0.4 mm. In the figure we see a 1x1 brick dimensioned with LDU where the width of the brick is 20 LDU or 8 mm. ![Tux, the Linux mascot](../assets/dim.png) The LDU gives us an easy way to manage dimension calculations using integer values and is well suited for building a parameterized model in a CAD. For example, a Lego plate height is defined as 8 LDU or 3.2 mm while the height of a standard brick is 3 plates or 24 LDU or 9.6 mm. The caveat of using LDU is that it is an approximation of the measured dimensions of Lego brick, eg. the there is a 0.2 mm less on the side of a Lego brick as a tolerance. The width of a 1x1 brick if measured would be 20 LDU - 0.2 mm which is 7.8 mm.
 
-CAD models.
-Education.
+Ootus, a contributor at instructables.com, has constructed a parameterized model in Fusion 360 which can be used for generating basic brick parts of different regular sizes. The sizes of the bricks are defined by three parameters: number of studs in the x direction, number of studs in the y direction and the plate height in the z direction. The model uses 8 mm as the unit of length and not LDU. The model does take into account the measured dimensions of a Lego brick and works quite well in producing different sized bricks.
 
+ Finally, it is noteworthy to mention the work of Yip-Hoi, D. M., & Newcomer, J. L. whom describe the use of Lego for teaching CAD software with the intent for students to design and manufacture parts using a FFF printer.
 
+## Approach
 
 ## Iteration 0
 
@@ -73,15 +45,12 @@ Confirm the
 
 ## References
 
-- [How to make 3D printed LEGO and LEGO Duplo
-parts](https://blog.prusaprinters.org/how-to-make-3d-printed-lego-and-lego-duplo-parts_31741/)
--
-[https://swooshable.com/how-to-start-building-lego](https://swooshable.com/how-to-start-building-lego)
+- [How to make 3D printed LEGO and LEGO Duplo parts](https://blog.prusaprinters.org/how-to-make-3d-printed-lego-and-lego-duplo-parts_31741/)
+- [https://swooshable.com/how-to-start-building-lego](https://swooshable.com/how-to-start-building-lego)
 
 ### Dimensions
 
-- [LEGO Brick Dimensions and
-Measurements](http://www.bartneck.de/2019/04/21/lego-brick-dimensions-and-measurements/)
+- [LEGO Brick Dimensions and Measurements](http://www.bartneck.de/2019/04/21/lego-brick-dimensions-and-measurements/)
 - [LDraw File Format Specification](https://www.ldraw.org/article/218.html)
 
 ### CAD
@@ -92,8 +61,6 @@ LEGO Paper presented at 2011 ASEE Annual Conference & Exposition, Vancouver, BC.
 10.18260/1-2--18586](https://peer.asee.org/teaching-cad-modeling-using-lego) has dimensions for brick manufacturing
 
 #### AutoDesk Inventor:
-- [Lab 9: Introduction to Mechanical
-Modeling](http://www.sze.hu/~kocsisz/kiberfizikai%20rendszerek/09-MechanicalModeling.pdf)
-has dimensions for brick manufacturing
+- [Lab 9: Introduction to Mechanical Modeling](http://www.sze.hu/~kocsisz/kiberfizikai%20rendszerek/09-MechanicalModeling.pdf) has dimensions for brick manufacturing
 
 https://www.quora.com/What-is-the-interference-lock-offset-of-a-LEGO-stud-hole-such-that-it-fits-snugly-into-another-piece-i-e-What-are-the-snap-mechanism-dimensions
