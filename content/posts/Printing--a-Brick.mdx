@@ -1,5 +1,5 @@
 ---
-title: 3D Printing of a Lego Compatible Brick using an Iterative and Incremental Development Approach
+title: 3D Printing of a Lego Compatible Brick with a Creality Ender 3 v2 using an Iterative and Incremental Development Approach 
 date: 2021-05-10
 ---
 
@@ -31,17 +31,71 @@ Ootus, a contributor at instructables.com, has constructed a parameterized model
 
 ## Approach
 
-## Iteration 0
+### Setup
 
-### (Re|De)+fine the System
+The CAD software used is Fusion 360. The slicer is Ultimaker Cura 4.9.1 using the default profile for the Creality Ender 3. A stock Creality Ender 3 v2 with a 0.4 mm nozzle and a generic PLA filament is used for manufacturing.  Measurements of the prints are done with a Mitutoyo 530-122 Vernier Caliper with a precision of 0.02 mm. 
+
+#### Design model, Manufacturing model and product model
+
+There are three models: a design model, a manufacturing model and a product model. The design model defines the ideal product. The manufacturing model is used to define the input for the FFF printer. It will vary from the desired product model and it is a representation of the capabilities and limitation any a particular FFF printer.  Although, the product from the manufacturing model might be the desired product model or an acceptable approximation. The product model represent the real dimensions of the manufactured product. Here product model is a physical Lego brick
+
+### Iteration
+
+The method of an iteration is a repetitive set of steps with the goal of having a refined product as compared to the product of the previous iteration. There is no set number of optimal number of iterations. The number of iterations may be considered as a limit which is approached by refining the precision and accuracy of the dimensions of the iteration product, the manufacturing model, as compared to the dimensions of the  desired product, the product model. . The CAD model is the design model. The manufacturing is used to define and refine the manufactured piece at the beginning of each iteration.
+
+## Development Iterations
+
+There were two iterations for this project:
+1. Calibration Iteration
+2. Manufacturing Iteration
+
+Each iteration was further divided into small goal oriented Sprints. The identification numbering system used is: 
+
+__[Iteration Number].[Sprint Number]__
+
+### Iteration 1.0 - Calibration
+
+Two 20x20 mm cube were printing without support using the "Standard" and "Super Fine" profiles in Cura for the Creality Ender 3. The 
+
+#### Table 1. Measured axis mm, Expected axis mm and Error Percent 
+___
+| Profile Name     | Meas X mm      | Exp X mm    | Percent Error |
+|:-----------------|:-------------:|:------------:|:-------------:|
+| Standard Quality | 19.96         | 20.00        | 0.2           |
+| Super Quality    | 19.82         | 20.00        | 0.9           |
+___
+| Profile Name     | Meas Y mm      | Exp Y mm    | Percent Error |
+|:-----------------|:-------------:|:------------:|:-------------:|
+| Standard Quality | 20.02         | 20.00        | 0.1           |
+| Super Quality    | 19.82         | 20.00        | 0.9           |
+___
+| Profile Name     | Meas Z mm      | Exp Z mm    | Percent Error |
+|:-----------------|:-------------:|:------------:|:-------------:|
+| Standard Quality | 19.92         | 20.00        | 0.4           |
+| Super Quality    | 19.92         | 20.00        | 0.4           |
+
+
+### Iteration 1.1 - Calibration refinement
+
+#### Table 2.Refined measured axis mm, Expected axis mm and Error Percent 
+___
+| Profile Name     | Meas X mm      | Exp X mm    | Percent Error |
+|:-----------------|:-------------:|:------------:|:-------------:|
+| Super Quality    | 19.96         | 20.00        | 0.2           |
+___
+| Profile Name     | Meas Y mm      | Exp Y mm    | Percent Error |
+|:-----------------|:-------------:|:------------:|:-------------:|
+| Super Quality    | 20.00         | 20.00        | 0.0          |
+___
+| Profile Name     | Meas Z mm      | Exp Z mm    | Percent Error |
+|:-----------------|:-------------:|:------------:|:-------------:|
+| Super Quality    | 19.92         | 20.00        | 0.4           |
+
+### Iteration 2.0
 
 
 
-### Research the current state of the system
-
-Has the part have a dimensional sketch adn/or a CAD model?
-
-Confirm the 
+## Conclusion
 
 ## References
 
