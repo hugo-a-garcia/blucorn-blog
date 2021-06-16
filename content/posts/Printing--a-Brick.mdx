@@ -1,5 +1,5 @@
 ---
-title: 3D Printing of a Lego Compatible Brick with a Creality Ender 3 v2 using an Iterative and Incremental Development Approach 
+title: 3D Printing of a Lego Compatible Part with a Creality Ender 3 v2 using an Iterative and Incremental Development Approach 
 date: 2021-05-10
 ---
 
@@ -53,54 +53,56 @@ Each iteration was further divided into small goal oriented Sprints. The identif
 
 __[Iteration Number].[Sprint Number]__
 
-### Iteration 1.0 - Calibration
+The numbering system starts at index = 1.
 
-Two 20x20 mm cube were printing without support using the "Standard" and "Super Fine" profiles in Cura for the Creality Ender 3. The 
+### Iteration 1.1 - Calibration
+
+Two 20x20 mm cube were printing without support using the "Standard" profiles in Cura for the Creality Ender 3. The 
 
 #### Table 1. Measured axis mm, Expected axis mm and Error Percent 
-___
+
 | Profile Name     | Meas X mm      | Exp X mm    | Percent Error |
 |:-----------------|:-------------:|:------------:|:-------------:|
 | Standard Quality | 19.96         | 20.00        | 0.2           |
-| Super Quality    | 19.82         | 20.00        | 0.9           |
-___
+
+
 | Profile Name     | Meas Y mm      | Exp Y mm    | Percent Error |
 |:-----------------|:-------------:|:------------:|:-------------:|
 | Standard Quality | 20.02         | 20.00        | 0.1           |
-| Super Quality    | 19.82         | 20.00        | 0.9           |
-___
+
+
 | Profile Name     | Meas Z mm      | Exp Z mm    | Percent Error |
 |:-----------------|:-------------:|:------------:|:-------------:|
 | Standard Quality | 19.92         | 20.00        | 0.4           |
-| Super Quality    | 19.92         | 20.00        | 0.4           |
 
 
-### Iteration 1.1 - Calibration refinement
+The X and Y error is good enough and prove the printer hardware or the slicer setting should be changed. The error for the Z axis is accounted by the slicing software layer height setting: number of layers * layer height = total height :: 166 layers * 0.12 mm/layer = 19.92 mm. The calibrations of good enough to proceed to the next iteration.
 
-#### Table 2.Refined measured axis mm, Expected axis mm and Error Percent 
-___
-| Profile Name     | Meas X mm      | Exp X mm    | Percent Error |
-|:-----------------|:-------------:|:------------:|:-------------:|
-| Super Quality    | 19.96         | 20.00        | 0.2           |
-___
-| Profile Name     | Meas Y mm      | Exp Y mm    | Percent Error |
-|:-----------------|:-------------:|:------------:|:-------------:|
-| Super Quality    | 20.00         | 20.00        | 0.0          |
-___
-| Profile Name     | Meas Z mm      | Exp Z mm    | Percent Error |
-|:-----------------|:-------------:|:------------:|:-------------:|
-| Super Quality    | 19.92         | 20.00        | 0.4           |
+### Iteration 1.1 - 2x2 plate print using the dimensions from Ootus
 
-### Iteration 2.0
+The design model created by Ootus serves as the baseline. It is well constructed given the dimensions. He does not provide a print using the dimensions. Here we print a 2x2 plate to test the basic dimension using the least amount of material. We use a 4x2 Lego brick to test connectivity with the plate.
 
+The connectivity to the studs of the Lego brick is tight but acceptable. The connectivity to the bottom of the Lego brick is not possible due to the small diameter of the studs. The stud diameter in the design model is 4.80 mm but the product model is 4.70. The difference is caused by accumulated rounding and systematic errors from  the slicer and the printer operation. The errors can be compensated by adding small O.xx mm to the diameter of the stud in the design model. It is very important to note that the measures stud diameter of a Lego block is 4.88 mm. Correcting the diameter of the stud is the focus of the proceeding iteration.
 
+### Iteration 2.0 - New parametric model in Fusion 360
+
+A new design model was made which uses the LDU as a base unit and with parameters for almost every dimension of the part in oder to facilitate the printing of a Lego part.
+
+### Iteration 3.1 - 2x2 with 0.15 added to the diameter
+
+### Iteration 3.2 - 2x2 with 0.20 added to the diameter
+
+### Iteration 4.1 - 4x2 brick
+
+The 4x2 brick connectivity was good for the top and bottom. Although, the side walls did sag inward at the point where the top side meets the side walls. Further correction can be done by providing internal support at the union point of the top with the side wall.
 
 ## Conclusion
+
+Here it is shown a way to produce Lego compatible parts using a 3D printer. The parts are not as dimensionally exact to Lego parts but they can be used. A further refinement could be the usage of a 0.2 mmm nozzle on the printer. The take away is that using an iterative design and manufactured process can greatly help in achieving a good final result by focusing on small changes. Here we recommend focusing first on the design model first and then consecutively on the manufacturing and product model.  
 
 ## References
 
 - [How to make 3D printed LEGO and LEGO Duplo parts](https://blog.prusaprinters.org/how-to-make-3d-printed-lego-and-lego-duplo-parts_31741/)
-- [https://swooshable.com/how-to-start-building-lego](https://swooshable.com/how-to-start-building-lego)
 
 ### Dimensions
 
@@ -109,12 +111,10 @@ ___
 
 ### CAD
 
+[Parametric Lego Bricks in Fusion 360](https://www.instructables.com/Parametric-Lego-Bricks-in-Fusion-360/)
+
 #### Education
 - [Yip-Hoi, D. M., & Newcomer, J. L. (2011, June), Teaching CAD Modeling Using
 LEGO Paper presented at 2011 ASEE Annual Conference & Exposition, Vancouver, BC.
 10.18260/1-2--18586](https://peer.asee.org/teaching-cad-modeling-using-lego) has dimensions for brick manufacturing
 
-#### AutoDesk Inventor:
-- [Lab 9: Introduction to Mechanical Modeling](http://www.sze.hu/~kocsisz/kiberfizikai%20rendszerek/09-MechanicalModeling.pdf) has dimensions for brick manufacturing
-
-https://www.quora.com/What-is-the-interference-lock-offset-of-a-LEGO-stud-hole-such-that-it-fits-snugly-into-another-piece-i-e-What-are-the-snap-mechanism-dimensions
