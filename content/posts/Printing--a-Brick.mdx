@@ -80,13 +80,27 @@ The X and Y error is good enough and prove the printer hardware or the slicer se
 
 ### Iteration 1.1 - 2x2 plate print using the dimensions from Ootus
 
-The design model created by Ootus serves as the baseline. It is well constructed given the dimensions. He does not provide a print using the dimensions. Here we print a 2x2 plate to test the basic dimension using the least amount of material. We use a 4x2 Lego brick to test connectivity with the plate.
+The design model created by Ootus serves as the baseline. It is well constructed given the dimensions of the plans he used. Here we print a 2x2 plate and test its connectivity to a 4x2 Lego brick. 
 
-The connectivity to the studs of the Lego brick is tight but acceptable. The connectivity to the bottom of the Lego brick is not possible due to the small diameter of the studs. The stud diameter in the design model is 4.80 mm but the product model is 4.70. The difference is caused by accumulated rounding and systematic errors from  the slicer and the printer operation. The errors can be compensated by adding small O.xx mm to the diameter of the stud in the design model. It is very important to note that the measures stud diameter of a Lego block is 4.88 mm. Correcting the diameter of the stud is the focus of the proceeding iteration.
+![2x2 plate](../assets/2x2.png)
 
-### Iteration 2.0 - New parametric model in Fusion 360
+#### Dimensions of the product
 
-A new design model was made which uses the LDU as a base unit and with parameters for almost every dimension of the part in oder to facilitate the printing of a Lego part.
+The only discrepancy between the 3D model and the product is the diameter of the studs where in the model the diameter is 4.8 mm while in the product it is 4.7 mm.
+
+#### Connectivity between the 2x2 plate studs to the 4x2 brick
+
+The connectivity to the bottom of the Lego brick is not possible due to the small diameter of the studs. The difference between the 3D model and the product diameter is caused the by accumulated rounding and systematic errors from creation of the STL mesh and the slicer. The errors can be compensated by adding small compensation to the diameter of the stud in the design model. It is very important to note that the measures stud diameter of a 4x2 Lego block is 4.88 mm.
+
+#### Connectivity between the 4x2 Lego studs to the 2x2 plate
+
+The connectivity to the studs of the 4x2 Lego brick is tight. The wall thickness of 1.6 mm is too thick by 0.1 mm. Also, the top of the inside is too low by 0.1 mm and thus the plate bottom edge is not flush with the brick.
+
+### Iteration 2.1 - New parametric model in Fusion 360
+
+A new design model was made which uses the LDU as a base unit and with parameters for almost every dimension of the part. The idea is to use the LDU as a base unit of measurement in the parameter equations. Needed changes to the model due to differences due to the manufactured of the parts and be introduced as magic numbers or parameters without changing the base LDU parametric equations.
+
+![Parameters](../assets/parameters.png)
 
 ### Iteration 3.1 - 2x2 with 0.15 added to the diameter
 
